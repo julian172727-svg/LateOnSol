@@ -1,2 +1,2 @@
 # LateOnSol
-Late coon
+Late coin
