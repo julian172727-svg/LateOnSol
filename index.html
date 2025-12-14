@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trading‑Dashboard (Simulation)</title>
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/static/manifest.json" />
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Include custom styles -->
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Trading‑Dashboard <span class="badge">Simulation</span></h1>
+    </header>
+    <main>
+      <section class="chart-section">
+        <canvas id="priceChart" aria-label="Preisdiagramm" role="img"></canvas>
+      </section>
+      <section class="controls">
+        <button id="refreshBtn">Daten aktualisieren</button>
+      </section>
+      <section class="info">
+        <p>
+          Diese Demo zeigt einen simulierten Kursverlauf. Das System dient nur
+          zu Lern‑ und Analysezwecken und kann keine echten Handelsaufträge
+          ausführen.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Trading‑Demo</p>
+    </footer>
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/static/service-worker.js')
+            .catch((err) => {
+              console.log('Service Worker registration failed:', err);
+            });
+        });
+      }
+    </script>
+    <!-- Load custom JS -->
+    <script src="/static/main.js"></script>
+  </body>
+</html>
